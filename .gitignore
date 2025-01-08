@@ -130,10 +130,9 @@ dist
 .pnp.*
 
 # IDEA
-.idea/
-
-# CodeceptJS
-output/
+.idea/**
+!.idea/codeStyles/
+!.idea/codeStyles/Project.xml
 
 # swc
 .swc/

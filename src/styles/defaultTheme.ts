@@ -1,5 +1,5 @@
 const defaultTheme = {
-  colors: {
+  color: {
     background: '#FFFFFF',
     text: '#000000',
     primary: '#F00000',

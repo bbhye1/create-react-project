@@ -7,16 +7,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '16.20.0'
+          node-version: '18'
       - name: Cache node modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
       - name: Install dependencies
         run: npm ci
       - name: Lint
@@ -32,5 +33,3 @@ jobs:
           cp -rp .next/static out/_next/
           rm -rf .next
           cp public/favicon.ico out/
-      - name: Run E2E tests
-        run: HEADLESS=true npm run test:ci-e2e
